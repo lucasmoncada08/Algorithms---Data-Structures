@@ -30,7 +30,7 @@ def binary_search(nums: List[int], target: int) -> int:
     
     return -1
 
-
+# Note that this would use a O(logN) space complexity
 def binary_search_recursive(nums: List[int], target: int) -> int:
     return _binary_search_helper(nums, target, 0, len(nums)-1)
 
@@ -46,20 +46,3 @@ def _binary_search_helper(nums: List[int], target: int, left: int, right: int) -
         return _binary_search_helper(nums, target, left, mid-1)
     else:
         return _binary_search_helper(nums, target, mid+1, right)
-
-
-"""
-Examples
-
-  [1, 2, 3, 4, 5, 6, 7, 8]
-    target = 8
-
-    left = 4
-    right = 7
-    mid = 5
-
-
-
-  [1, 2, 3, 4, 5, 6, 7]
-
-"""
