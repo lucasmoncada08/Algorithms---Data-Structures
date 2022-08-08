@@ -2,6 +2,8 @@ import unittest
 
 from insertion_sort import insertion_sort
 from selection_sort import selection_sort
+from bubble_sort import bubble_sort
+from merge_sort import merge_sort
 
 class TestSorting(unittest.TestCase):
     data = [
@@ -23,6 +25,18 @@ class TestSorting(unittest.TestCase):
         for nums in self.data:
             expected = sorted(nums)
             actual = selection_sort(nums)
+            self.assertEqual(expected, actual)
+    
+    def test_bubble_sort(self):
+        for nums in self.data:
+            expected = sorted(nums)
+            actual = bubble_sort(nums)
+            self.assertEqual(expected, actual)
+
+    def test_merge_sort(self):
+        for nums in self.data:
+            expected = sorted(nums)
+            actual = merge_sort(nums)
             self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
