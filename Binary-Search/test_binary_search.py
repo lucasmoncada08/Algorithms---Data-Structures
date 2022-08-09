@@ -1,6 +1,6 @@
 import unittest
 
-from . import binary_search, binary_search_recursive, find_boundary, first_el_smaller
+from . import binary_search, binary_search_recursive, find_boundary, first_el_smaller, first_occurrence
 
 class TestBinarySearch(unittest.TestCase):
     binary_search_data = (
@@ -47,6 +47,12 @@ class TestBinarySearch(unittest.TestCase):
         ([2, 6, 7, 10, 13, 13, 13, 13, 13, 19], 12, 4),
     )
 
+    first_occurence_data = (
+        ([1, 2, 3, 3, 3, 6, 8, 9], 3, 2),
+        ([3, 5, 7, 7, 7, 7, 8], 7, 2),
+        ([3, 4, 5, 8, 9, 9], 9, 4),
+    )
+
     def test_binary_search(self):
         for data, target, expected in self.binary_search_data:
             actual = binary_search(data, target)
@@ -67,6 +73,10 @@ class TestBinarySearch(unittest.TestCase):
             actual = first_el_smaller(data, target)
             self.assertEqual(expected, actual)
 
+    def test_first_occurence(self):
+        for data, target, expected in self.first_occurence_data:
+            actual = first_occurrence(data, target)
+            self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
     unittest.main()
