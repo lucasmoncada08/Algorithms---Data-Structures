@@ -9,26 +9,22 @@ Space Complexity: O(1)
 from typing import List
 
 def peak_of_mountain(nums: List[int]) -> int:
-    left, right = 1, len(nums)-2
+    left, right = 0, len(nums)-1
+    peak = 0
+    nums.append(float('-inf')) # accounting for last element edge case
 
     while left <= right:
         mid = (left + right) // 2
 
-        if nums[mid-1] < nums[mid] < nums[mid+1]:
-            return mid
-        
-        if nums[left] < nums[mid]:
-            if nums[mid-1] < nums[mid]:
-                left = mid + 1
-            else:
-                right = mid - 1
-            continue
-        
-        if nums[mid] > nums[right]:
-            if nums[mid] > nums[mid+1]:
-                right = mid - 1
-            else:
-                left = mid + 1
+        if nums[mid] > nums[mid+1]:
+            peak = mid
+            right = mid - 1
+        else:
+            left = mid + 1
     
-            
+    nums.pop() # removing the added value
+    
+    return peak
+        
+        
          
