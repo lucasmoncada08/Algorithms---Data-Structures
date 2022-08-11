@@ -1,7 +1,7 @@
 import unittest
 
 from . import binary_search, binary_search_recursive, find_boundary, first_el_smaller, first_occurrence, \
-    square_root, minimum_in_rotated
+    square_root, minimum_in_rotated, peak_of_mountain
 
 class TestBinarySearch(unittest.TestCase):
     binary_search_data = (
@@ -75,6 +75,12 @@ class TestBinarySearch(unittest.TestCase):
         ([9, 8], 1),
     )
 
+    peak_data = (
+        ([0, 1, 2, 3, 2, 1, 0], 3),
+        ([2, 8, 6, 4, 1, 0], 1),
+        ([1, 3, 5, 6, 7, 8, 9, 4, 2], 6)
+    )
+
     def test_binary_search(self):
         for data, target, expected in self.binary_search_data:
             actual = binary_search(data, target)
@@ -108,6 +114,11 @@ class TestBinarySearch(unittest.TestCase):
     def test_min_in_rotated(self):
         for data, expected in self.min_in_rotated_data:
             actual = minimum_in_rotated(data)
+            self.assertEqual(expected, actual)
+
+    def test_peak_of_mountain(self):
+        for data, expected in self.peak_data:
+            actual = peak_of_mountain(data)
             self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
