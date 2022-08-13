@@ -6,3 +6,4 @@ from .first_occurrence import first_occurrence
 from .square_root import square_root
 from .min_in_rotated import minimum_in_rotated
 from .peak_of_mountain import peak_of_mountain
+from .ship_in_d_days import ship_in_d_days

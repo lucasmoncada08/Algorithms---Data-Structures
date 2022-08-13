@@ -1,7 +1,7 @@
 import unittest
 
 from . import binary_search, binary_search_recursive, find_boundary, first_el_smaller, first_occurrence, \
-    square_root, minimum_in_rotated, peak_of_mountain
+    square_root, minimum_in_rotated, peak_of_mountain, ship_in_d_days
 
 class TestBinarySearch(unittest.TestCase):
     binary_search_data = (
@@ -81,6 +81,11 @@ class TestBinarySearch(unittest.TestCase):
         ([1, 3, 5, 6, 7, 8, 9, 4, 2], 6)
     )
 
+    ship_in_days_data = (
+        ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5, 15),
+        ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3, 21),
+    )
+
     def test_binary_search(self):
         for data, target, expected in self.binary_search_data:
             actual = binary_search(data, target)
@@ -119,6 +124,11 @@ class TestBinarySearch(unittest.TestCase):
     def test_peak_of_mountain(self):
         for data, expected in self.peak_data:
             actual = peak_of_mountain(data)
+            self.assertEqual(expected, actual)
+    
+    def test_ship_in_d_days(self):
+        for weights, days, expected in self.ship_in_days_data:
+            actual = ship_in_d_days(weights, days)
             self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
