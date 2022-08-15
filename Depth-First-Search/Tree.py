@@ -54,6 +54,19 @@ class Tree:
         if node.right:
             self._pre_order_helper(node.right, path)
 
+    def post_order(self) -> List:
+        path = []
+        if self.root:
+            self._post_order_helper(self.root, path)
+        return path
+    
+    def _post_order_helper(self, node: Node, path: List) -> None:
+        if node.left:
+            self._post_order_helper(node.left, path)
+        if node.right:
+            self._post_order_helper(node.right, path)
+        path.append(node.val)
+
 
 
 f = Node('F')
@@ -80,4 +93,7 @@ tree2 = Tree()
 tree2.pre_order_make_tree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', ''])
 path2 = tree2.pre_order()
 print(path2)
+
+post_path = tree2.post_order()
+print(post_path)
 
