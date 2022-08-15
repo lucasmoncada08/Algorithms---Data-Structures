@@ -67,6 +67,18 @@ class Tree:
             self._post_order_helper(node.right, path)
         path.append(node.val)
 
+    def dfs(self, root, target):
+        if root is None:
+            return None
+        if root.val == target:
+            return root
+        left = self.dfs(root.left, target)
+        if left:
+            return left
+        
+        return self.dfs(root.right, target)
+
+
 
 
 f = Node('F')
@@ -86,14 +98,19 @@ d.left = c
 d.right = e
 
 tree = Tree(f)
-path = tree.in_order()
-print(path)
+# path = tree.in_order()
+# print(path)
 
 tree2 = Tree()
 tree2.pre_order_make_tree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', ''])
-path2 = tree2.pre_order()
-print(path2)
+# path2 = tree2.pre_order()
+# print(path2)
 
-post_path = tree2.post_order()
-print(post_path)
+# post_path = tree2.post_order()
+# print(post_path)
 
+node = tree2.dfs(tree2.root, 'L')
+if node:
+    print(node.val)
+else:
+    print('no node found')
