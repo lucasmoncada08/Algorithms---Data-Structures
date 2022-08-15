@@ -1,7 +1,7 @@
 
 from platform import node
 from typing import List
-
+from collections import deque
 
 class Node:
     def __init__(self, val):
@@ -13,21 +13,48 @@ class Tree:
     def __init__(self, root: List[Node]=None) -> None:
         self.root = root
 
-    # def in_order_make_tree(self, nodes: List[Node]) 
-
+    def pre_order_make_tree(self, nodes: List[Node]):
+        node_q = deque(nodes)
+        if node_q:
+            self.root = self._pre_order_make_tree_helper(node_q)
+            
+    def _pre_order_make_tree_helper(self, node_q: deque):
+        node_val = node_q.popleft()
+        # print(f'node_val: {node_val}')
+        if node_val == '':
+            return
+        node = Node(node_val)
+        node.left = self._pre_order_make_tree_helper(node_q)
+        node.right = self._pre_order_make_tree_helper(node_q)
+        return node
+    
     def in_order(self) -> List:
         path = []
-        if self.root
-        self._in_order_helper(self.root, path)
+        if self.root:
+            self._in_order_helper(self.root, path)
         return path
 
     def _in_order_helper(self, node: Node, path: List) -> None:
-
         if node.left:
             self._in_order_helper(node.left, path)
         path.append(node.val)
         if node.right:
             self._in_order_helper(node.right, path)
+
+    def pre_order(self) -> List:
+        path = []
+        if self.root:
+            self._pre_order_helper(self.root, path)
+        return path
+
+    def _pre_order_helper(self, node: Node, path: List) -> None:
+        path.append(node.val)
+        if node.left:
+            self._pre_order_helper(node.left, path)
+        if node.right:
+            self._pre_order_helper(node.right, path)
+
+
 
 f = Node('F')
 b = Node('B')
@@ -48,3 +75,9 @@ d.right = e
 tree = Tree(f)
 path = tree.in_order()
 print(path)
+
+tree2 = Tree()
+tree2.pre_order_make_tree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', ''])
+path2 = tree2.pre_order()
+print(path2)
+
