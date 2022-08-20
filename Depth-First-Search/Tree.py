@@ -20,7 +20,6 @@ class Tree:
             
     def _pre_order_make_tree_helper(self, node_q: deque):
         node_val = node_q.popleft()
-        # print(f'node_val: {node_val}')
         if node_val == '':
             return
         node = Node(node_val)
