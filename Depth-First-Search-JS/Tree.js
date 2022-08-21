@@ -70,33 +70,4 @@ class Tree {
     }
 }
 
-f = new Node('F');
-b = new Node('B');
-g = new Node('G');
-f.left = b;
-f.right = g;
-a = new Node('A');
-d = new Node('D');
-h = new Node('H');
-b.left = a;
-b.right = d;
-g.right = h;
-c = new Node('C');
-e = new Node('E');
-d.left = c;
-d.right = e;
-
-
-const tree = new Tree(f);
-
-// p1 = tree.inOrderTrav();
-// console.log(p1);
-
-// p2 = tree.preOrderTrav();
-// console.log(p2);
-
-const tree2 = new Tree();
-tree2.makeTree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', '']);
-
-p3 = tree2.preOrderTrav();
-console.log(p3);
+export { Tree }; 
