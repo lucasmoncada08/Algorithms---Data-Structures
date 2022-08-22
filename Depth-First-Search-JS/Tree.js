@@ -84,6 +84,8 @@ class Tree {
     makeTree = function(nodes) {
         let nodeIndex = 0;
 
+        if (!nodes.length) return;
+
         const makeTreeHelper = () => {
             let node_val = nodes[nodeIndex];
             if (node_val === "") return;
