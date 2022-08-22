@@ -24,4 +24,10 @@ describe("Depth First Search Methods", () => {
     it("returns a post-order path of a tree", () => {
         expect(tree1.postOrderTrav()).deep.to.equal(['C', 'E', 'F', 'D', 'B', 'H', 'G', 'A']);
     });
+
+    it("returns back a found node if available in tree", () => {
+        expect(tree1.depthFirstSearch(tree1.root, 'A')?.val).to.equal('A');
+        expect(tree1.depthFirstSearch(tree1.root, 'G')?.val).to.equal('G');
+        expect(tree1.depthFirstSearch(tree1.root, 'Z')?.val).to.equal(undefined);
+    })
 });

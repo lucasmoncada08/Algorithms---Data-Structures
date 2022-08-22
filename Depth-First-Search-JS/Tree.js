@@ -92,10 +92,26 @@ class Tree {
             node.left = makeTreeHelper();
             nodeIndex++;
             node.right = makeTreeHelper();
-            return node
+            return node;
         }
 
-        this.root = makeTreeHelper()
+        this.root = makeTreeHelper();
+    }
+
+    /**
+     * Depth First Search of a Tree using the root
+     * @param {Node} root the starting point
+     * @param {any} target the value to search for
+     * @returns {Node|undefined} node with target value
+     */
+    depthFirstSearch = function(root, target) {
+        if (!root) return;
+        if (root.val == target) return root;
+
+        const left = this.depthFirstSearch(root.left, target);
+        if (left) return left;
+        const right = this.depthFirstSearch(root.right, target);
+        return right;
     }
 }
 
