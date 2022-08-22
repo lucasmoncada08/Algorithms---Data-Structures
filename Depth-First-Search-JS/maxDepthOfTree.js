@@ -9,10 +9,10 @@ export const maxDepthOfTree = (node) => {
 
     if (!node) return 0
 
-    const leftDepth = maxDepthOfTree(node.left) + 1;
-    const rightDepth = maxDepthOfTree(node.right) + 1;
+    const leftDepth = maxDepthOfTree(node.left);
+    const rightDepth = maxDepthOfTree(node.right);
 
-    return Math.max(leftDepth, rightDepth);
+    return Math.max(leftDepth, rightDepth) + 1;
 
 };
 

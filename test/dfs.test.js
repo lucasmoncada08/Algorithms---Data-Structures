@@ -46,11 +46,27 @@ describe("Max Depth of Tree", () => {
     let tree4 = new Tree();
     tree4.makeTree([])
 
-
     it("returns the maximum depth of a tree", () => {
         expect(maxDepthOfTree(tree1.root)).to.equal(4);
         expect(maxDepthOfTree(tree2.root)).to.equal(6);
         expect(maxDepthOfTree(tree3.root)).to.equal(1);
         expect(maxDepthOfTree(tree4.root)).to.equal(0);
+    });
+})
+
+describe("Nodes Visible in a Tree", () => {
+    let tree1 = new Tree();
+    tree1.makeTree([5, 4, 3, '', '', 8, '', '', 6, '', '']);
+    
+    let tree2 = new Tree();
+    tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',])
+
+    let tree3 = new Tree();
+    tree3.makeTree([1, '', ''])
+
+    it("returns the maximum depth of a tree", () => {
+        expect(maxDepthOfTree(tree1.root)).to.equal(3);
+        expect(maxDepthOfTree(tree2.root)).to.equal(6);
+        expect(maxDepthOfTree(tree3.root)).to.equal(1);
     });
 })
