@@ -16,4 +16,12 @@ describe("Depth First Search Methods", () => {
     it("returns a pre-order path of a tree", () => {
         expect(tree1.preOrderTrav()).deep.to.equal(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']);
     });
+
+    it("returns a in-order path of a tree", () => {
+        expect(tree1.inOrderTrav()).deep.to.equal(['C', 'B', 'E', 'D', 'F', 'A', 'G', 'H']);
+    });
+
+    it("returns a post-order path of a tree", () => {
+        expect(tree1.postOrderTrav()).deep.to.equal(['C', 'E', 'F', 'D', 'B', 'H', 'G', 'A']);
+    });
 });

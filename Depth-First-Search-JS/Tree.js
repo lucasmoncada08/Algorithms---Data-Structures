@@ -15,6 +15,10 @@ class Tree {
         this.root = root;
     }
 
+    /**
+     * In Order Traversal of Tree
+     * @returns {Array} path derived from in order traversal
+     */
     inOrderTrav = function() {
         if (!this.root) return [];
         
@@ -32,6 +36,10 @@ class Tree {
         return path;
     }
 
+    /**
+     * Pre Order Traversal of Tree
+     * @returns {Array} path derived from pre order traversal
+     */
     preOrderTrav = function() {
         if (!this.root) return [];
 
@@ -46,6 +54,27 @@ class Tree {
 
         preOrderTravHelper(this.root);
         return path;
+    }
+
+    /**
+     * 
+     * Traverse the tree in a post-order style
+     * @return {Array} path of tree in post-order
+     */
+    postOrderTrav = function() {
+        if (!this.root) return;
+
+        const path = []
+
+        const postOrderHelper = (node) => {
+            if (!node) return;
+            postOrderHelper(node.left)
+            postOrderHelper(node.right)
+            path.push(node.val)
+        }
+
+        postOrderHelper(this.root)
+        return path
     }
 
     /**
