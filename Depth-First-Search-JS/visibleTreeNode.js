@@ -28,7 +28,7 @@ export const visibleTreeNode = (root) => {
 export const visibleTreeNode2 = (root, maxSoFar=-Infinity) => {
 
     if (!root) return 0;
-    
+
     let total = 0;
 
     if (root.val > maxSoFar) {
@@ -41,13 +41,3 @@ export const visibleTreeNode2 = (root, maxSoFar=-Infinity) => {
 
     return total
 }
-
-
-/*
-      
-  - 3     - 6
-      - 8
-5 
-  - 8
-      
-*/

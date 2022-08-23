@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { Tree } from '../Depth-First-Search-JS/Tree.js';
-import { maxDepthOfTree } from '../Depth-First-Search-JS/maxDepthOfTree.js'
+import { maxDepthOfTree } from '../Depth-First-Search-JS/maxDepthOfTree.js';
+import { isBalancedTree } from '../Depth-First-Search-JS/balancedTree.js';
 
 describe("Depth First Search Methods", () => {
 
@@ -59,14 +60,27 @@ describe("Nodes Visible in a Tree", () => {
     tree1.makeTree([5, 4, 3, '', '', 8, '', '', 6, '', '']);
     
     let tree2 = new Tree();
-    tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',])
+    tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',]);
 
     let tree3 = new Tree();
-    tree3.makeTree([1, '', ''])
+    tree3.makeTree([1, '', '']);
 
     it("returns the maximum depth of a tree", () => {
         expect(maxDepthOfTree(tree1.root)).to.equal(3);
         expect(maxDepthOfTree(tree2.root)).to.equal(6);
         expect(maxDepthOfTree(tree3.root)).to.equal(1);
     });
-})
+});
+
+describe("Is Tree Balanced", () => {
+    let tree1 = new Tree();
+    tree1.makeTree([1, 2, 4, '', 7, '', '', 5, '', '', 3, '', 6, '', '']);
+
+    let tree2 = new Tree();
+    tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',]);
+
+    it("returns if a tree is balanced or not", () => {
+        expect(isBalancedTree(tree1.root)).to.equal(true);
+        expect(isBalancedTree(tree2.root)).to.equal(false);
+    })
+});
