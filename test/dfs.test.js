@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { Tree } from '../Depth-First-Search-JS/Tree.js';
 import { maxDepthOfTree } from '../Depth-First-Search-JS/maxDepthOfTree.js';
 import { isBalancedTree } from '../Depth-First-Search-JS/balancedTree.js';
+import { BinaryTree } from '../Depth-First-Search-JS/BinaryTree.js';
 
 describe("Depth First Search Methods", () => {
 
@@ -83,4 +84,17 @@ describe("Is Tree Balanced", () => {
         expect(isBalancedTree(tree1.root)).to.equal(true);
         expect(isBalancedTree(tree2.root)).to.equal(false);
     })
+});
+
+describe("Binary Search Tree Methods", () => {
+    const bt1 = new BinaryTree();
+    const nodes1 = [8, 3, 10, 1, 6, 4];
+    nodes1.forEach((node) => bt1.insert(node));
+
+    it("returns the value found", () => {
+        expect(bt1.search(3).val).to.equal(3);
+        expect(bt1.search(4).val).to.equal(4);
+        expect(bt1.search(7)).to.equal(null);
+    });
+
 });
