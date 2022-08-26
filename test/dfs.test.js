@@ -1,8 +1,9 @@
 import { expect } from 'chai';
-import { Tree } from '../Depth-First-Search-JS/Tree.js';
+import { Tree, Node } from '../Depth-First-Search-JS/Tree.js';
 import { maxDepthOfTree } from '../Depth-First-Search-JS/maxDepthOfTree.js';
 import { isBalancedTree } from '../Depth-First-Search-JS/balancedTree.js';
 import { BinaryTree } from '../Depth-First-Search-JS/BinaryTree.js';
+import { isValidBST } from '../Depth-First-Search-JS/validBST.js';
 
 describe("Depth First Search Methods", () => {
 
@@ -97,4 +98,38 @@ describe("Binary Search Tree Methods", () => {
         expect(bt1.search(7)).to.equal(null);
     });
 
+});
+
+describe("Is Valid Binary Search Tree", () => {
+    const bt1 = new BinaryTree();
+    const nodes1 = [8, 3, 10, 1, 4, 6];
+    nodes1.forEach((node) => bt1.insert(node));
+
+    const bt2 = new BinaryTree();
+    const nodes2 = [1, 2, 3, 4, 0, 6];
+    nodes2.forEach((node) => bt2.insert(node));
+
+    it("handles valid binary search trees", () => {
+        const ex1 = isValidBST(bt1.root);
+        expect(ex1).to.equal(true);
+        const ex2 = isValidBST(bt2.root);
+        expect(ex2).to.equal(true);
+    })
+    
+    const bt3 = new BinaryTree();
+    nodes1.forEach((node) => bt3.insert(node));
+
+    bt3.root.left.left.right = new Node(5);
+
+    const bt4 = new BinaryTree();
+    nodes2.forEach((node) => bt4.insert(node));
+
+    const tempRoot = bt4.root;
+    bt4.root = new Node(5);
+    bt4.root.left = tempRoot;
+
+    it("handles invalid binary search trees", () => {
+        expect(isValidBST(bt3.root)).to.equal(false);
+        expect(isValidBST(bt4.root)).to.equal(false);
+    });
 });

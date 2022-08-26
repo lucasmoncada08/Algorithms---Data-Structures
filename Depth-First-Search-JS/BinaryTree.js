@@ -8,27 +8,27 @@ class BinaryTree {
     insert = function(value) {
         if (!this.root) {
             this.root = new Node(value);
-            return
+            return;
         }
 
-        const findNext = (node) => {
+        const findNext = (node, value) => {
             if (node.val > value) {
                 if (!node.left) {
                     node.left = new Node(value);
                     return;
                 }
-                findNext(node.left);
+                findNext(node.left, value);
             }
             else {
                 if (!node.right) {
                     node.right = new Node(value);
                     return;
                 }
-                findNext(node.right);
+                findNext(node.right, value);
             }
         }
 
-        findNext(this.root);
+        findNext(this.root, value);
     }
 
     search = function(value) {
@@ -45,4 +45,4 @@ class BinaryTree {
     }
 }
 
-export {BinaryTree};
+export { BinaryTree };
