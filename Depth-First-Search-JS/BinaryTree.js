@@ -12,7 +12,8 @@ class BinaryTree {
         }
 
         const findNext = (node, value) => {
-            if (node.val > value) {
+            if (node.val === value) return;
+            else if (node.val > value) {
                 if (!node.left) {
                     node.left = new Node(value);
                     return;
