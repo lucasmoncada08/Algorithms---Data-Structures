@@ -11,7 +11,11 @@ const ternaryTreePaths = (root) => {
     const handleNode = (node, currentPath) => {
         if (!node.children.length) paths.push(currentPath);
 
-        node.children.forEach((child) => handleNode(child, currentPath+`->${child.val}`))
+        node.children.forEach((child) => {
+            currentPath += `->${child.val}`
+            handleNode(child, currentPath);
+            currentPath = currentPath.slice(0, currentPath.lastIndexOf("->"));
+        })
     }
 
     handleNode(root, `${root.val}`);
