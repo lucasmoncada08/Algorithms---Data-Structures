@@ -11,22 +11,11 @@ const ternaryTreePaths = (root) => {
     const handleNode = (node, currentPath) => {
         if (!node.children.length) paths.push(currentPath);
 
-        node.children.forEach((child) => {
-            handleNode(child, currentPath.push(child));
-            currentPath.pop();
-        })
+        node.children.forEach((child) => handleNode(child, currentPath+`->${child.val}`))
     }
 
-    handleNode(root, []);
+    handleNode(root, `${root.val}`);
     return paths;
-
 }
 
 export { ternaryTreePaths };
-
-
-/*
-Examples:
-[1, 2, 3, '', 4, 5, '', '', 6, '', '']
-
-*/

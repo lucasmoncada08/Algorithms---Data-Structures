@@ -7,7 +7,7 @@ import { isValidBST } from '../Depth-First-Search-JS/validBST.js';
 
 describe("Depth First Search Methods", () => {
 
-    let tree1 = new Tree();
+    const tree1 = new Tree();
     tree1.makeTree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', '']);
 
     it("makes a pre-order tree", () => {
@@ -37,16 +37,16 @@ describe("Depth First Search Methods", () => {
 });
 
 describe("Max Depth of Tree", () => {
-    let tree1 = new Tree();
+    const tree1 = new Tree();
     tree1.makeTree(['A', 'B', 'C', '', '', 'D', 'E', '', '', 'F', '', '', 'G', '', 'H', '', '']);
     
-    let tree2 = new Tree();
+    const tree2 = new Tree();
     tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',])
 
-    let tree3 = new Tree();
+    const tree3 = new Tree();
     tree3.makeTree([1, '', ''])
 
-    let tree4 = new Tree();
+    const tree4 = new Tree();
     tree4.makeTree([])
 
     it("returns the maximum depth of a tree", () => {
@@ -58,13 +58,13 @@ describe("Max Depth of Tree", () => {
 })
 
 describe("Nodes Visible in a Tree", () => {
-    let tree1 = new Tree();
+    const tree1 = new Tree();
     tree1.makeTree([5, 4, 3, '', '', 8, '', '', 6, '', '']);
     
-    let tree2 = new Tree();
+    const tree2 = new Tree();
     tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',]);
 
-    let tree3 = new Tree();
+    const tree3 = new Tree();
     tree3.makeTree([1, '', '']);
 
     it("returns the maximum depth of a tree", () => {
@@ -75,10 +75,10 @@ describe("Nodes Visible in a Tree", () => {
 });
 
 describe("Is Tree Balanced", () => {
-    let tree1 = new Tree();
+    const tree1 = new Tree();
     tree1.makeTree([1, 2, 4, '', 7, '', '', 5, '', '', 3, '', 6, '', '']);
 
-    let tree2 = new Tree();
+    const tree2 = new Tree();
     tree2.makeTree([1, 2, 3, 4, 5, 6, '', '', '', '', '', '', '',]);
 
     it("returns if a tree is balanced or not", () => {
