@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { TernaryTree } from '../Backtracking/TernaryTree.js';
 import { ternaryTreePaths } from '../Backtracking/ternaryTreePaths.js';
 import { findStringPermutations } from '../Backtracking/stringPermutations.js';
+import { getFibonacciNumber } from '../Backtracking/fibonacci.js';
 
 describe("Test ternary tree paths function", () => {
     const tree1 = new TernaryTree();
@@ -42,5 +43,16 @@ describe("Get all permutations of string", () => {
         expect(res3).to.have.members(['g'])
         expect(res3.length).to.equal(factorial(str3.length));
         
+    });
+});
+
+describe("Check Fibonnaci Sequence Function", () => {
+    it("Test return values of fibonacci sequence", () => {
+        expect(getFibonacciNumber(0)).to.equal(0);
+        expect(getFibonacciNumber(1)).to.equal(1);
+        expect(getFibonacciNumber(2)).to.equal(1);
+        expect(getFibonacciNumber(5)).to.equal(5);
+        expect(getFibonacciNumber(7)).to.equal(13);
+        expect(getFibonacciNumber(10)).to.equal(55);
     });
 });
