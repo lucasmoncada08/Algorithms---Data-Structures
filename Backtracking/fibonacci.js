@@ -13,7 +13,7 @@ const getFibonacciNumber = (num) => {
         if (alreadyComputed !== undefined) return alreadyComputed;
         const fibRes = getFibonacciNumberHelper(num-1) + getFibonacciNumberHelper(num-2);
         memo.set(num, fibRes);
-        return fibRes
+        return fibRes;
     }
     
     return getFibonacciNumberHelper(num);

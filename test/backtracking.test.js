@@ -3,6 +3,7 @@ import { TernaryTree } from '../Backtracking/TernaryTree.js';
 import { ternaryTreePaths } from '../Backtracking/ternaryTreePaths.js';
 import { findStringPermutations } from '../Backtracking/stringPermutations.js';
 import { getFibonacciNumber } from '../Backtracking/fibonacci.js';
+import { wordBreak } from '../Backtracking/wordBreak.js';
 
 describe("Test ternary tree paths function", () => {
     const tree1 = new TernaryTree();
@@ -54,5 +55,23 @@ describe("Check Fibonnaci Sequence Function", () => {
         expect(getFibonacciNumber(5)).to.equal(5);
         expect(getFibonacciNumber(7)).to.equal(13);
         expect(getFibonacciNumber(10)).to.equal(55);
+    });
+});
+
+describe("Check the Functionality of the Word Break Function", () => {
+    it("Test when word in options", () => {
+        expect(wordBreak("helloworld", ["hello", "world"])).to.equal(true);
+        expect(wordBreak("helloworldhello", ["hello", "world"])).to.equal(true);
+        expect(wordBreak("aaaaaaaa", ["a"])).to.equal(true);
+        expect(wordBreak("hello world", ["world", " ", "hello"])).to.equal(true);
+        expect(wordBreak("hello  world", ["world", " ", "hello"])).to.equal(true);
+    });
+
+    it("Test when word is not in options", () => {
+        expect(wordBreak("hellowrld", ["hello", "world"])).to.equal(false);
+        expect(wordBreak("helloworldhello", ["hello", "wrld"])).to.equal(false);
+        expect(wordBreak("aaaaaaaa", ["ab"])).to.equal(false);
+        expect(wordBreak("h", ["world", " ", "hello"])).to.equal(false);
+        expect(wordBreak("codecodecode", ["codec"])).to.equal(false);
     });
 });
