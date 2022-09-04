@@ -4,6 +4,7 @@ import { ternaryTreePaths } from '../Backtracking/ternaryTreePaths.js';
 import { findStringPermutations } from '../Backtracking/stringPermutations.js';
 import { getFibonacciNumber } from '../Backtracking/fibonacci.js';
 import { wordBreak } from '../Backtracking/wordBreak.js';
+import { palindromePartition } from '../Backtracking/palindromePartitioning.js';
 
 describe("Test ternary tree paths function", () => {
     const tree1 = new TernaryTree();
@@ -73,5 +74,22 @@ describe("Check the Functionality of the Word Break Function", () => {
         expect(wordBreak("aaaaaaaa", ["ab"])).to.equal(false);
         expect(wordBreak("h", ["world", " ", "hello"])).to.equal(false);
         expect(wordBreak("codecodecode", ["codec"])).to.equal(false);
+    });
+});
+
+describe("Test Palindrome Partition Functions", () => {
+    it("Check the functionality", () => {
+        
+        const palindromePartData = [
+            ["aab", [["a", "a", "b"], ["aa", "b"]]],
+            ["aba", [["a", "b", "a",], ["aba"]]],
+        ];
+
+        for (const data of palindromePartData) {
+            const input = data[0];
+            const expected = data[1];
+            expect(palindromePartition(input)).to.deep.equal(expected);
+        }
+
     });
 });
